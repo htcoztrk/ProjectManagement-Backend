@@ -15,6 +15,6 @@ public interface ProjectService {
 	ProjectResponse delete(Long id);
 	ProjectResponse getById(Long id);
 	List<ProjectResponse> getAll();
-	
+
 	List<ProjectResponse> getProjectsByDate(LocalDate date) throws ProjectNotFoundException;
 }

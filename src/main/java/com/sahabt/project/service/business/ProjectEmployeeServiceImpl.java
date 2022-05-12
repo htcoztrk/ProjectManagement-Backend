@@ -29,7 +29,7 @@ public class ProjectEmployeeServiceImpl implements ProjectEmployeeService{
 	public ProjectEmployeeResponse add(ProjectEmployeeRequest request) {
 		var result=modelMapper.map(request, ProjectEmployee.class);
 		return modelMapper.map(projectEmployeeRepository.save(result), ProjectEmployeeResponse.class);
-				
+
 	
 	}
 
@@ -40,7 +40,7 @@ public class ProjectEmployeeServiceImpl implements ProjectEmployeeService{
 				.orElseThrow(()->new EntityNotFoundException());
 		modelMapper.map(projectEmployee, result);
 		return  modelMapper.map(projectEmployeeRepository.save(result), ProjectEmployeeResponse.class);
-				
+
 		
 	}
 

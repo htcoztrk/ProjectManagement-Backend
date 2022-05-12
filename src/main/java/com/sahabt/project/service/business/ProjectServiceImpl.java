@@ -23,7 +23,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	private ProjectRepository projectRepository;
 	private ModelMapper modelMapper;
-	
+
 	public ProjectServiceImpl(ProjectRepository projectRepository,ModelMapper modelMapper) {
 		this.modelMapper=modelMapper;
 		this.projectRepository = projectRepository;
@@ -59,7 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
 	public ProjectResponse getById(Long id) {
 		var result= projectRepository.findById(id).orElseThrow(()->new EntityNotFoundException());
 		 return modelMapper.map(result, ProjectResponse.class);
-		
+
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class ProjectServiceImpl implements ProjectService {
 				.map(p->modelMapper.map(p, ProjectResponse.class))
 				.toList();
 	}
-	
+
 	public List<ProjectResponse> getProjectsByDate(LocalDate date) throws ProjectNotFoundException {
 		var date1 = LocalDate.of(date.getYear(),date.getMonthValue(),date.getDayOfMonth());
 		var list = projectRepository.findByEndDate(date1);

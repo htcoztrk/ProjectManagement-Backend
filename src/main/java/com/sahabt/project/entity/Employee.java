@@ -26,8 +26,8 @@ public class Employee {
 	private Long id;
 	private String name;
 	private double salary;
-	
-	@JsonIgnore
+
+	//@JsonIgnore
 	@OneToMany(mappedBy="employee")
 	List<ProjectEmployee> projectEmployee;
 }

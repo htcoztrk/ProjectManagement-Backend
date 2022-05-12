@@ -42,5 +42,5 @@ public class Project {
 	private String offer;
 	@JsonIgnore
 	@OneToMany(mappedBy="project")
-	List<ProjectEmployee> projectEmploee;
+	List<ProjectEmployee> projectEmployee;
 }
