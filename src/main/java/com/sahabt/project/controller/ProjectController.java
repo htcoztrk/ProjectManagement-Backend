@@ -50,7 +50,7 @@ public class ProjectController {
 	public ProjectResponse deleteProject(@PathVariable Long id) {
 		return projectService.delete(id);
 	}
-	
+
 	@GetMapping("/date/{endDate}")
 	// swaggerda 15.05.2022 şeklinde aranacak
 	List<ProjectResponse> getProjectsByDate(@RequestParam LocalDate date) throws ProjectNotFoundException {
