@@ -68,6 +68,14 @@ public class ProjectServiceImpl implements ProjectService {
 				.map(p->modelMapper.map(p, ProjectResponse.class))
 				.toList();
 	}
+	
+	public List<ProjectResponse> getProjectsByDate(LocalDate date) throws ProjectNotFoundException {
+		var date1 = LocalDate.of(date.getYear(),date.getMonthValue(),date.getDayOfMonth());
+		var list = projectRepository.findByEndDate(date1);
+		if(list.isEmpty())
+			throw new ProjectNotFoundException("there is no flight record on:" + date);
+		return list.stream().map(pro -> modelMapper.map(pro, ProjectResponse.class)).toList();
+	}
 
 	public List<ProjectResponse> getProjectsByDate(LocalDate date) throws ProjectNotFoundException {
 		var date1 = LocalDate.of(date.getYear(),date.getMonthValue(),date.getDayOfMonth());
