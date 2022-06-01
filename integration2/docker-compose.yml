@@ -6,8 +6,8 @@ version: '3.6'
 
 services:
 
-  portal-backend:
-    image: portal:0.0.1
+  portal:
+    image: project:0.0.1
     ports:
       - 9090:7070
     depends_on:
