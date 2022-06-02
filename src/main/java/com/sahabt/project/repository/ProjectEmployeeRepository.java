@@ -8,4 +8,5 @@ import com.sahabt.project.entity.ProjectEmployee;
 @Repository
 public interface ProjectEmployeeRepository extends JpaRepository<ProjectEmployee, Long>{
 
+
 }

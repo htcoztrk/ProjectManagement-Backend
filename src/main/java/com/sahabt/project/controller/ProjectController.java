@@ -3,7 +3,6 @@ package com.sahabt.project.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.sahabt.project.exception.ProjectAlreadyExistException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -57,6 +57,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+	public Employee findById(Long id) {
+
+		var employee= employeeRepository.findById(id);
+		if (employee.isPresent())
+			return employee.get();
+		else
+			throw new EntityNotFoundException();
+	}
+
+	@Override
 	public List<EmployeeResponse> getAll() {
 		return employeeRepository.findAll()
 				.stream()

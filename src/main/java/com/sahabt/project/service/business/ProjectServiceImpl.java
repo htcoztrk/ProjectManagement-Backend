@@ -63,6 +63,15 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
+	public Project findById(Long id) {
+		var project = projectRepository.findById(id);
+		if (project.isPresent())
+			return project.get();
+		else
+			throw new EntityNotFoundException();
+	}
+
+	@Override
 	public List<ProjectResponse> getAll() {
 		return projectRepository.findAll().stream()
 				.map(p->modelMapper.map(p, ProjectResponse.class))
@@ -73,7 +82,7 @@ public class ProjectServiceImpl implements ProjectService {
 		var date1 = LocalDate.of(date.getYear(),date.getMonthValue(),date.getDayOfMonth());
 		var list = projectRepository.findByEndDate(date1);
 		if(list.isEmpty())
-			throw new ProjectNotFoundException("there is no flight record on:" + date);
+			throw new ProjectNotFoundException("there is no project record on:" + date);
 		return list.stream().map(pro -> modelMapper.map(pro, ProjectResponse.class)).toList();
 	}
 

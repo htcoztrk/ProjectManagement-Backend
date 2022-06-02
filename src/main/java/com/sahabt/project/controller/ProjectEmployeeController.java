@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sahabt.project.dto.request.ProjectEmployeeRequest;
 import com.sahabt.project.dto.response.ProjectEmployeeResponse;
-import com.sahabt.project.entity.ProjectEmployee;
 import com.sahabt.project.service.ProjectEmployeeService;
 
 @RestController
@@ -32,18 +31,22 @@ public class ProjectEmployeeController {
 	public List<ProjectEmployeeResponse> getAll(){
 		return projectEmployeeService.getAll();
 	}
+
 	@GetMapping(value="/getById/{id}")
 	public ProjectEmployeeResponse getById(@PathVariable Long id){
 		return projectEmployeeService.getById(id);
 	}
+
 	@PostMapping("/addEmployee")
-	public ProjectEmployeeResponse addEmployee(@RequestBody ProjectEmployeeRequest employee) {
-		return projectEmployeeService.add(employee);
+	public ProjectEmployeeResponse addEmployee(@RequestBody ProjectEmployeeRequest request) {
+		return projectEmployeeService.add(request);
 	}
+
 	@PutMapping("/updateEmployee/{id}")
-	public ProjectEmployeeResponse updatprojectEmployee(@PathVariable Long id,@RequestBody ProjectEmployeeRequest employee) {
-		return projectEmployeeService.update(id,employee);
+	public ProjectEmployeeResponse updateProjectEmployee(@PathVariable Long id,@RequestBody ProjectEmployeeRequest request) {
+		return projectEmployeeService.update(id,request);
 	}
+
 	@DeleteMapping("/{id}")
 	public ProjectEmployeeResponse deleteEmployee(Long id) {
 		return projectEmployeeService.delete(id);
