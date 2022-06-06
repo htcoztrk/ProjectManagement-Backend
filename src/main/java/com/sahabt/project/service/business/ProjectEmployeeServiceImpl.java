@@ -48,7 +48,6 @@ public class ProjectEmployeeServiceImpl implements ProjectEmployeeService{
 		response.setProjectResponse(modelMapper.map(project, ProjectResponse.class));
 		return response;
 
-	
 	}
 
 	@Transactional
