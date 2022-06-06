@@ -11,5 +11,8 @@ public interface ProjectEmployeeService {
 	ProjectEmployeeResponse update(Long id,ProjectEmployeeRequest projectEmployee);
 	ProjectEmployeeResponse delete(Long id);
 	ProjectEmployeeResponse getById(Long id);
+
+	List<ProjectEmployeeResponse> getProjectByEmployeeId(Long id);
+
 	List<ProjectEmployeeResponse> getAll();
 }

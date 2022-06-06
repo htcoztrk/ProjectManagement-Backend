@@ -13,12 +13,12 @@ public class RestControllerErrorHandler {
     @ExceptionHandler(ProjectNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handleProjectNotFoundException(ProjectNotFoundException e) {
-        return new ErrorResponse("Customer Rest API", e.getMessage());
+        return new ErrorResponse("Project Rest API", e.getMessage());
     }
 
     @ExceptionHandler(ProjectAlreadyExistException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleProjectAlreadyExistException(ProjectAlreadyExistException e) {
-        return new ErrorResponse("Customer Rest API", e.getMessage());
+        return new ErrorResponse("Project Rest API", e.getMessage());
     }
 }

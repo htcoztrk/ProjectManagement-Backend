@@ -37,6 +37,11 @@ public class ProjectEmployeeController {
 		return projectEmployeeService.getById(id);
 	}
 
+	@GetMapping(value="/getByEmployee_Id/{id}")
+	public List<ProjectEmployeeResponse> getByEmployee_Id(@PathVariable Long id){
+		return projectEmployeeService.getProjectByEmployeeId(id);
+	}
+
 	@PostMapping("/addEmployee")
 	public ProjectEmployeeResponse addEmployee(@RequestBody ProjectEmployeeRequest request) {
 		return projectEmployeeService.add(request);

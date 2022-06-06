@@ -100,6 +100,23 @@ public class ProjectEmployeeServiceImpl implements ProjectEmployeeService{
 	}
 
 	@Override
+	public List<ProjectEmployeeResponse> getProjectByEmployeeId(Long id) {
+		var result = projectEmployeeRepository.findAll();
+		var response = result.stream().filter(e->e.getEmployee().getId()==id).toList();
+		var response2 = response.stream()
+				.map(p -> {
+					var empResponse = modelMapper.map(p.getEmployee(), EmployeeResponse.class);
+					var prjResponse = modelMapper.map(p.getProject(), ProjectResponse.class);
+					var response1 = modelMapper.map(p, ProjectEmployeeResponse.class);
+					response1.setEmployeeResponse(empResponse);
+					response1.setProjectResponse(prjResponse);
+					return response1;
+				})
+				.toList();
+		return response2;
+	}
+
+	@Override
 	public List<ProjectEmployeeResponse> getAll() {
 		return projectEmployeeRepository.findAll()
 				.stream()
