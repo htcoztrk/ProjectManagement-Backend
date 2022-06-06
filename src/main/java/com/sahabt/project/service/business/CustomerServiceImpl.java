@@ -9,6 +9,7 @@ import com.sahabt.project.repository.CustomerRepository;
 import com.sahabt.project.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,9 +21,10 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
     private ModelMapper modelMapper;
 
-    public void addCustomer(CustomerRequest request) {
+    public CustomerResponse addCustomer(CustomerRequest request) {
         var customerEntity = modelMapper.map(request, Customer.class);
-        customerRepository.save(customerEntity);
+        var saved = customerRepository.save(customerEntity);
+        return modelMapper.map(saved, CustomerResponse.class);
     }
 
     @Override

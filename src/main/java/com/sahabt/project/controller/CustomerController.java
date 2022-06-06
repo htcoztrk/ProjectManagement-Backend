@@ -18,8 +18,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping
-    void addCustomer(@RequestBody CustomerRequest request){
-        customerService.addCustomer(request);
+    CustomerResponse addCustomer(@RequestBody CustomerRequest request){
+        return customerService.addCustomer(request);
     }
 
     @GetMapping(value="/getAll")
