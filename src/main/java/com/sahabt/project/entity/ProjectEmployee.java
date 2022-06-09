@@ -17,8 +17,9 @@ public class ProjectEmployee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Enumerated(EnumType.STRING)
-	private EmployeeStatus employeeStatus;
+	@OneToOne
+	@JoinColumn(name ="status",referencedColumnName = "status")
+	private EmpStatus employeeStatus;
 	@ManyToOne
 	@JoinColumn(name="project_id")
 	private Project project;

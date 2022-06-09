@@ -13,7 +13,7 @@ public class ModelMapperConfig {
 	private static final Converter<ProjectEmployee, ProjectEmployeeResponse>  PROJECT_EMPLOYEE_TO_PROJECT_EMPLOYEE_RESPONSE_CONVERTER =
 			context -> {
 				var response = new ProjectEmployeeResponse();
-				response.setEmployeeStatus(context.getSource().getEmployeeStatus());
+				//response.setEmployeeStatus(context.getSource().getEmployeeStatus());
 				return response;
 			};
 	@Bean

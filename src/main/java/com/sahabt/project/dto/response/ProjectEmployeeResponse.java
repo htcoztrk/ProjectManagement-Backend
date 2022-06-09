@@ -1,7 +1,5 @@
 package com.sahabt.project.dto.response;
 
-import com.sahabt.project.entity.EmployeeStatus;
-
 import lombok.*;
 
 @Getter
@@ -10,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class ProjectEmployeeResponse {
 
-	private EmployeeStatus employeeStatus;
+	private EmpStatusResponse employeeStatus;
 	private ProjectResponse projectResponse;
 	private EmployeeResponse employeeResponse;
 }

@@ -5,8 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.sahabt.project.entity.ProjectEmployee;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProjectEmployeeRepository extends JpaRepository<ProjectEmployee, Long>{
+    Optional<ProjectEmployee> findByEmployee_IdAndProject_Id(Long employee_id, Long project_id);
 }

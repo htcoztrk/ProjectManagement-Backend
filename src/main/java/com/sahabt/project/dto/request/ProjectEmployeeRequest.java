@@ -1,5 +1,6 @@
 package com.sahabt.project.dto.request;
 
+import com.sahabt.project.entity.EmpStatus;
 import com.sahabt.project.entity.EmployeeStatus;
 
 import lombok.*;
@@ -12,5 +13,5 @@ public class ProjectEmployeeRequest {
 
 	private Long projectId;
 	private Long employeeId;
-	private EmployeeStatus employeeStatus;
+	private EmpStatus employeeStatus;
 }

@@ -52,8 +52,8 @@ public class ProjectEmployeeController {
 		return projectEmployeeService.update(id,request);
 	}
 
-	@DeleteMapping("/{id}")
-	public ProjectEmployeeResponse deleteEmployee(Long id) {
-		return projectEmployeeService.delete(id);
+	@DeleteMapping("/deleteEmployee")
+	public ProjectEmployeeResponse deleteEmployee(Long employeeId,Long projectId) {
+		return projectEmployeeService.delete(employeeId,projectId);
 	}
 }

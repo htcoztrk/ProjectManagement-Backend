@@ -9,7 +9,7 @@ public interface ProjectEmployeeService {
 
 	ProjectEmployeeResponse add(ProjectEmployeeRequest projectEmployee);
 	ProjectEmployeeResponse update(Long id,ProjectEmployeeRequest projectEmployee);
-	ProjectEmployeeResponse delete(Long id);
+	ProjectEmployeeResponse delete(Long employeeId,Long projectId);
 	ProjectEmployeeResponse getById(Long id);
 
 	List<ProjectEmployeeResponse> getProjectByEmployeeId(Long id);
